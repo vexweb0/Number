@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Numbers Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+    
+    .container {
+        background-color: #f0f0f0;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 5px 5px 15px #bcbcbc, 
+                    -5px -5px 15px #ffffff;
+        text-align: center; /* Center-align content */
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    #password {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        box-shadow: inset 3px 3px 5px #bcbcbc, 
+                    inset -3px -3px 5px #ffffff;
+    }
+    
+    button {
+        padding: 10px 20px;
+        background-color: #61dafb;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        margin: 0 auto; /* Center the button horizontally */
+    }
+    
+    button:hover {
+        background-color: #47a7f5;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Numbers Generator</h1>
+    <input type="text" id="password" readonly>
+    <button onclick="generatePassword()">Generate Number</button>
+</div>
+
+<script>
+    function generatePassword() {
+        const length = 8; // Change this value to set password length
+        const charset = "0123456789";
+        let password = "";
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * charset.length);
+            password += charset[randomIndex];
+        }
+        document.getElementById("password").value = password;
+    }
+</script>
+
+</body>
+</html>
